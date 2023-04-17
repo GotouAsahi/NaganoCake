@@ -1,2 +1,14 @@
-<h1>Public::Customers#unsbscribe</h1>
-<p>Find me in app/views/public/customers/unsbscribe.html.erb</p>
+<div class="row">
+  <div class="col">
+    <div class="h2 mb-2 text-black text-center mt-5">本当に退会しますか？</div>
+    <div class="h4 mb-2 text-black text-center mt-5">
+      退会すると、会員登録情報や</br>
+      これまでの購入履歴が閲覧できなくなります。</br>
+      退会する場合は、「退会する」をクリックしてください。
+    </div>
+    <div class="row justify-content-center mt-5">
+      <%= link_to "退会しない", mypage_path, class: "btn btn-primary mb-3 mr-3" %>
+      <%= link_to "退会する", customers_withdrow_path,method: :patch, class: "btn btn-danger mb-3" %>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,60 @@
-<h1>カスタマーマイページ</h1>
+<div class='row'>
+    <div class="col-8">
+      <div class="col-3 h4 mb-2 bg-light text-black text-center">マイページ</div></br>
+      <div class="row mb-3">
+        <div class="col font-weight-bold d-flex align-items-center h2">登録情報
+        <%= link_to "編集する",customers_edit_path,class: "btn btn-lg btn-success ml-3" %></div>
+      </div>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th class="col-2 table-secondary border-dark">氏名</th>
+            <td class="col-5 border-dark">
+              <%= current_customer.first_name %>
+              <%= current_customer.last_name %>
+            </td>
+          </tr>
+          <tr>
+            <th class="table-secondary border-dark">カナ</th>
+            <td class="border-dark">
+              <%= current_customer.first_kana %>
+              <%= current_customer.last_kana %>
+            </td>
+          </tr>
+          <tr>
+            <th class="table-secondary border-dark">郵便番号</th>
+            <td class="border-dark">
+              <%= current_customer.postal_code %>
+            </td>
+          </tr>
+          <tr>
+            <th class="table-secondary border-dark">住所</th>
+            <td class="border-dark">
+              <%= current_customer.address %>
+            </td>
+          </tr>
+          <tr>
+            <th class="table-secondary border-dark">電話番号</th>
+            <td class="border-dark">
+              <%= current_customer.telephone_number%>
+            </td>
+          </tr>
+          <tr>
+            <th class="table-secondary border-dark">メールアドレス</th>
+            <td class="border-dark">
+              <%= current_customer.email %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row mb-3">
+        <div class="col font-weight-bold d-flex align-items-center h2">配送先
+        <%= link_to "一覧を見る",customers_edit_path,class: "btn btn-lg btn-primary ml-5" %></div>
+      </div>
+      <div class="row mb-3">
+        <div class="col font-weight-bold d-flex align-items-center h2">注文履歴
+        <%= link_to "一覧を見る",customers_edit_path,class: "btn btn-lg btn-primary ml-3" %></div>
+      </div>
+    </div>
+  </div>
+</div>

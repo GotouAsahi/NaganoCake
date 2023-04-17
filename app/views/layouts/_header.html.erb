@@ -1,4 +1,4 @@
-<header>
+<header class="border-bottom border-dark pb-3 mb-3">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <% if admin_signed_in? %>
@@ -19,7 +19,7 @@
             <li><%= link_to "ログアウト", destroy_customer_session_path,method: :delete,class: 'nav-link text-dark border'%></li>
           <% elsif admin_signed_in? %>
             <li><%= link_to "商品一覧", root_path,class: 'nav-link text-dark border mr-4'%></li>
-            <li><%= link_to "会員一覧", root_path,class: 'nav-link text-dark border mr-4'%></li>
+            <li><%= link_to "会員一覧", admin_customers_path,class: 'nav-link text-dark border mr-4'%></li>
             <li><%= link_to "注文履歴一覧", root_path,class: 'nav-link text-dark border mr-4'%></li>
             <li><%= link_to "ジャンル一覧", root_path,class: 'nav-link text-dark border mr-4'%></li>
             <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: 'nav-link text-dark border'%></li>
