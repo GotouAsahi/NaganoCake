@@ -8,7 +8,7 @@
     </div>
     <div class="row justify-content-center mt-5">
       <%= link_to "退会しない", mypage_path, class: "btn btn-primary mb-3 mr-3" %>
-      <%= link_to "退会する", customers_withdrow_path,method: :patch, class: "btn btn-danger mb-3" %>
+      <%= link_to "退会する", customers_withdrow_path,method: :patch, data: {confirm: "本当に退会されますか？"},class: "btn btn-danger mb-3" %>
     </div>
   </div>
 </div>
