@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get '/about' => "homes#about", as: "about"
+    resources :items,only: [:index,:show]
     get 'customers/mypage' => "customers#show", as: "mypage"
     get 'customers/information/edit' => "customers#edit", as: "customers_edit"
     patch 'customers/information' => "customers#update", as: "customers_update"
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
+
   end
 
   # 管理者用
@@ -26,6 +28,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "homes#top"
+    resources :items,except: [:destroy]
+    resources :genres,only: [:index,:edit,:create,:update]
     resources :customers,only: [:index,:show,:edit,:update]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
