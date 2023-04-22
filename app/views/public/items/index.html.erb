@@ -1,0 +1,15 @@
+<div class='row'>
+  <div class="col-3"></div>
+    <div class="col-8">
+      <div class="col h4 mt-5 mb-3 pl-0 text-blackr font-weight-bold">商品一覧(全<%=  @items.count%>件)</div>
+      <div class="row">
+          <% @items.each do |item| %>
+          <div class="col-3">
+            <%= image_tag item.get_image,size: "145x100" %>
+            <p class="font-weight-bold mt-3 mb-1"><%= item.name %></p>
+            <p class="font-weight-bold"><%= item.notax_price %></p>
+            </div>
+          <% end %>
+          </div>
+    </div>
+  </div>

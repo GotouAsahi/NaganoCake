@@ -1,0 +1,74 @@
+<div class='row'>
+  <div class="col-11 offset-1">
+    <div class="col-3 h4 mt-4 mb-4 bg-light text-black text-center">商品新規登録</div>
+    <%= render 'layouts/errors', obj: @item %>
+    <div class="col-11 offset-1">
+      <%= form_with model: @item, url: admin_items_path, method: :post, local: true do |item| %>
+        <div class="row">
+          <div class="field col-2">
+            <%= item.label "商品画像" %>
+            </div>
+            <div class="field col-6">
+            <%= item.file_field :image, accept: "image/*", class: "mb-2"%>
+            </div>
+        </div>
+        <div class="row">
+          <div class="field col-2">
+            <%= item.label "商品名" %>
+            </div>
+            <div class="field col-6">
+            <%= item.text_field :name, placeholder: "商品名",  class: "form-control mb-2" %>
+            </div>
+        </div>
+        <div class="row">
+          <div class="field col-2">
+            <%= item.label "商品説明" %>
+            </div>
+            <div class="field col-6">
+            <%= item.text_area :introduction, placeholder: "ここに説明文を記述します",  class: "form-control mb-2",rows: 8 %>
+            </div>
+        </div>
+        <div class="row">
+          <div class="field col-2">
+            <%= item.label "ジャンル" %>
+            </div>
+            <div class="field col-6">
+            <%= item.collection_select :genre_id, Genre.all, :id, :name, { prompt: '選択してください' }, class: "form-control mb-2"%>
+            </div>
+        </div>
+        <div class="row">
+          <div class="field col-2">
+            <%= item.label "税抜価格" %>
+            </div>
+            <div class="field col-6 d-flex flex-row">
+            <%= item.text_field :notax_price, placeholder: "1000",  class: "form-control mr-2 mb-2" %>
+            <div class="d-flex align-items-center">円</div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="field col-2">
+            <%= item.label "販売ステータス" %>
+            </div>
+            <div class="field col-6">
+              <div class="row">
+                <div class="col text-center">
+                  <%= item.radio_button :is_active, true, checked: true , class: "mb-2"%>
+                  <%= item.label :is_active, "販売中",value: :true, class: "mb-2" %>
+                </div>
+                <div class="col text-center">
+                  <%= item.radio_button :is_active, false , class: "mb-2"%>
+                  <%= item.label :is_active, "販売停止中",value: :false, class:"mb-2" %>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="actions col-3">
+            <%= item.submit "新規登録",class: 'btn btn-sm btn-success btn-block' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
