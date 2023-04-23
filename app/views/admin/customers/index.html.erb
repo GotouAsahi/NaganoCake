@@ -3,13 +3,15 @@
     <div class="col-3 h4 mt-4 mb-4 bg-light text-black text-center">会員一覧</div>
     <div class="col-8 offset-2">
       <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th class="col-2">会員ID</th>
+            <th class="col-3">氏名</th>
+            <th class="col-4">メールアドレス</th>
+            <th class="col-2">ステータス</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr>
-            <th class="col-2 table-light border-bottom">会員ID</th>
-            <th class="col-3 table-light border-bottom">氏名</th>
-            <th class="col-4 table-light border-bottom">メールアドレス</th>
-            <th class="col-2 table-light border-bottom">ステータス</th>
-          <tr>
           <% @customers.each do |customer| %>
             <tr>
               <td><%= customer.id %></td>

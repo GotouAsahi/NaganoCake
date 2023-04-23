@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :genre
+  has_many :cart_items
 
   has_one_attached :image
 
@@ -14,5 +15,9 @@ class Item < ApplicationRecord
       image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     image
+  end
+
+  def add_tax_price
+    (notax_price * 1.10).floor
   end
 end

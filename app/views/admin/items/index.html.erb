@@ -8,14 +8,16 @@
     </div>
     <div class="col-10 offset-1">
       <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th class="col-2">商品ID</th>
+            <th class="col-3">商品名</th>
+            <th class="col-2">税抜価格</th>
+            <th class="col-3">ジャンル</th>
+            <th class="col-2">ステータス</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr>
-            <th class="col-2 table-light border-bottom">商品ID</th>
-            <th class="col-3 table-light border-bottom">商品名</th>
-            <th class="col-2 table-light border-bottom">税抜価格</th>
-            <th class="col-3 table-light border-bottom">ジャンル</th>
-            <th class="col-2 table-light border-bottom">ステータス</th>
-          <tr>
           <% @items.each do |item| %>
             <tr>
               <td><%= item.id %></td>

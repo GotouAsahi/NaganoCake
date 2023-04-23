@@ -1,0 +1,32 @@
+<div class='row'>
+  <div class="col">
+    <div class="col-3 h4 mt-4 mb-4 bg-light text-black text-center">ショッピングカート</div>
+    <%#= render 'layouts/errors', obj: @ %>
+    <div class="col-10 offset-1">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th class="col-3 border-dark">商品名</th>
+            <th class="col-2 border-dark">単価(税込)</th>
+            <th class="col-3 border-dark">数量</th>
+            <th class="col-2 border-dark">小計</th>
+            <th class="col-2 border-dark"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td class="border-dark"><%= cart_item.item.name %></td>
+              <td class="border-dark"><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
+              <td class="border-dark"><%= cart_item.amount %></td>
+              <td class="border-dark"><%= cart_item.subtotal.to_s(:delimited) %></td>
+
+                <td class="text-success">販売中</td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
