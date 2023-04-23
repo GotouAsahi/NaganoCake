@@ -5,8 +5,10 @@
       <div class="row">
           <% @items.each do |item| %>
           <div class="col-3">
-            <%= image_tag item.get_image,size: "145x100" %>
-            <p class="font-weight-bold mt-3 mb-1"><%= item.name %></p>
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.get_image,size: "145x100" %>
+              <p class="font-weight-bold mt-3 mb-1"><%= item.name %></p>
+            <% end %>
             <p class="font-weight-bold"><%= item.notax_price %></p>
             </div>
           <% end %>
