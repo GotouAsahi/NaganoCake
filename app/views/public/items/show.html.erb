@@ -15,7 +15,7 @@
         <div class="row">
           <div class="field col-6 mt-3 mb-3">
             <%= cart_item.hidden_field :item_id, :value => @item.id %>
-            <%= cart_item.select :amount, *[1..10], { prompt: '個数選択' }, class: "form-control" %>
+            <%= cart_item.select :amount, *[1..20], { prompt: '個数選択' }, class: "form-control" %>
             </div>
           <div class="actions col mt-3 mb-3 d-flex align-items-center">
             <%= cart_item.submit "カートに入れる",class: 'btn btn-sm btn-success btn-block' %>
