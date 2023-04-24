@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     patch 'customers/information' => "customers#update", as: "customers_update"
     get 'customers/unsbscribe'
     patch 'customers/withdrow'
-    resources :cart_items,only: [:index,:update,:create,:destroy]
     delete '/cart_items/destroy_all' => "cart_items#destroy_all"
+    resources :cart_items,only: [:index,:update,:create,:destroy]
   end
 
 
