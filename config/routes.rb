@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     patch 'customers/withdrow'
     delete '/cart_items/destroy_all' => "cart_items#destroy_all"
     resources :cart_items,only: [:index,:update,:create,:destroy]
+    resources :addresses ,except: [:new,:show]
   end
 
 
