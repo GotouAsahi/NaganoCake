@@ -1,0 +1,27 @@
+<div class='row'>
+  <div class="col">
+    <div class="col-3 h4 mt-4 mb-4 bg-light text-center">注文履歴一覧</div>
+    <div class="col-10 offset-1">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th class="col-2">購入日時</th>
+            <th class="col-3">購入者</th>
+            <th class="col-2">注文個数</th>
+            <th class="col-3">注文ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= link_to order.created_at.to_s(:datetime_jp),admin_order_path(order.id),class: "text-dark border-bottom border-dark" %></td>
+              <td><%= order.customer.first_name+order.customer.last_name %></td>
+              <td><%= order.order_details.sum(:amount) %></td>
+              <td><%= Order.order_statuses_i18n[order.order_status] %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
