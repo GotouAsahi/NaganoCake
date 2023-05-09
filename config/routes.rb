@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'order_details/update'
+  end
+  namespace :admin do
+    get 'orders/show'
+    get 'orders/update'
+  end
   # 顧客用
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
@@ -17,6 +24,9 @@ Rails.application.routes.draw do
     patch 'customers/withdrow'
     delete '/cart_items/destroy_all' => "cart_items#destroy_all"
     resources :cart_items,only: [:index,:update,:create,:destroy]
+    post 'orders/confirmation',as: "confirmation"
+    get 'orders/completion',as: "completion"
+    resources :orders,only: [:new,:create,:index,:show]
     resources :addresses ,except: [:new,:show]
   end
 
@@ -31,6 +41,8 @@ Rails.application.routes.draw do
     resources :items,except: [:destroy]
     resources :genres,only: [:index,:edit,:create,:update]
     resources :customers,only: [:index,:show,:edit,:update]
+    resources :orders,only: [:index,:show,:update]
+    patch 'order_details/:id' => 'order_details#update', as: 'order_detail'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
