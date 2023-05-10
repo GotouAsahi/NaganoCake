@@ -1,0 +1,13 @@
+<div class="col h4 mt-5 mb-3 pl-0"></div>
+<table class="border border-dark w-100">
+  <thead>
+    <tr>
+      <th class="border-bottom border-dark text-center">ジャンル検索</th>
+    </tr>
+    <% @genres.each do |genre| %>
+      <tr>
+        <th><div class="my-1 ml-3"><%= link_to genre.name,items_path(genre_id: genre.id),class: "text-dark" %></div></th>
+      </tr>
+    <% end %>
+  </thead>
+</table>
