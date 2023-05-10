@@ -1,4 +1,4 @@
-class Public::OrdersController < ApplicationController
+class Public::OrdersController < Public::BaseController
   before_action :cart_check,only: [:new,:create]
   def new
     @order=Order.new
