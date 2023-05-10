@@ -1,4 +1,4 @@
-<header class="border-bottom border-dark pb-3 mb-3">
+<header class="border-bottom border-dark pb-1 mb-3">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <% if admin_signed_in? %>
@@ -10,7 +10,7 @@
               aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="cllapse navbar-collapse" id="navbarNavDropdown">
+      <div class="cllapse navbar-collapse flex-column" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <% if customer_signed_in? %>
             <li><%= link_to "マイページ", mypage_path,class: 'nav-link text-dark border mr-4'%></li>
@@ -29,6 +29,11 @@
             <li><%= link_to "ログイン", new_customer_session_path,class: 'nav-link text-dark border'%></li>
           <% end %>
         </ul>
+        <% if admin_signed_in? %>
+        <ul class="navbar-nav ml-auto">
+          <%= render 'admin/searches/search'%>
+        </ul>
+        <% end %>
       </div>
     </div>
   </nav>

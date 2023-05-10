@@ -1,0 +1,5 @@
+<div class="search_form mt-3 justify-content-end">
+  <%= form_with url: admin_search_path, local: true, method: :post do |f| %>
+    <%= f.text_field :word,placeholder: "Search",class: "form-control" %>
+  <% end %>
+</div>

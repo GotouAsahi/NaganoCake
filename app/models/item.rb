@@ -21,4 +21,12 @@ class Item < ApplicationRecord
   def add_tax_price
     (notax_price * 1.10).floor
   end
+
+  def self.looks(word)
+    if word.present?
+      @item = Item.where("name LIKE?","%#{word}%")
+    else
+      @item = Item.all
+    end
+  end
 end
