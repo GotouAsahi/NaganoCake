@@ -2,7 +2,7 @@ class Public::CartItemsController < Public::BaseController
   before_action :authenticate_customer!
   def index
     @customer=Customer.find(current_customer.id)
-    @cart_items=@customer.cart_items.all
+    @cart_items=@customer.cart_items
     @total=0
   end
 
