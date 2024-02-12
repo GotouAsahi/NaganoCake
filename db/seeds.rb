@@ -20,13 +20,15 @@ Admin.create!(
 end
 # 商品作成
 [
-  [1,'チーズタルト', 'チーズタルトです',1200,true],
-  [1,'ザッハトルテ', 'ザッハトルです',2900,true],
-  [1,'モンブラン', 'モンブランです',500,false],
-  [2,'濃厚プリン', '濃厚プリンです',500,false],
-  [3,'クッキー', 'クッキーです',800,true]
-].each do |genre_id,name, introduction, notax_price,is_active|
-  Item.create!(
+  [1,'チーズタルト', 'チーズタルトです',1200,true,File.open('./app/assets/images/ti-zu.jpeg'),'ti-zu.jpeg'],
+  [1,'ザッハトルテ', 'ザッハトルです',2900,true,File.open('./app/assets/images/zahha.jpeg'),'zahha.jpeg'],
+  [1,'モンブラン', 'モンブランです',500,true,File.open('./app/assets/images/mon.png'),'mon.png'],
+  [2,'濃厚プリン', '濃厚プリンです',500,true,File.open('./app/assets/images/purin.png'),'purin.png'],
+  [3,'クッキー', 'クッキーです',800,true,File.open('./app/assets/images/cookie.png'),'cookie.png']
+].each do |genre_id,name, introduction, notax_price,is_active,img,filename|
+  item=Item.create!(
     { genre_id:genre_id, name:name,introduction:introduction, notax_price:notax_price,is_active:is_active}
   )
+  item.image.attach(io: img, filename: filename)
+  item.save!
   end
